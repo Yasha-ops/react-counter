@@ -21,8 +21,8 @@ function launchFireworks() {
     var particleCount = 50 * (timeLeft / duration);
     // since particles fall down, start a bit higher than random
 
-    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }, scalar: 0.5}));
-    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }, scalar: 0.5}));
+    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }, scalar: 2}));
+    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }, scalar: 2}));
   }, 250);
 }
 
@@ -33,10 +33,16 @@ function App() {
   // Add fireworks when clicked !
   return (
     <div >
-      <h1 className='select-none text-bold font-heading hover:text-xl hover:animate-wiggle' onClick={ () => { 
+      <div className='hover:animate-wiggle'
+       onClick={ () => { 
           launchFireworks();
           setCount(count + 1);
-      }}>Click on me !</h1>
+      }}>
+      <h1 className='text-3xl select-none text-bold font-heading hover:text-xl'>
+        Click on me !
+      </h1>
+
+      </div>
       <div className='text-center'>
         <h1 className='text-sm text-center font-heading'>{count}</h1>
       </div>
